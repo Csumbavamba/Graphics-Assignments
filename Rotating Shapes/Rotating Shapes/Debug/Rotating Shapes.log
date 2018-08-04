@@ -1,2 +1,3 @@
 ﻿  main.cpp
+d:\programming\github\graphics-assignments\rotating shapes\rotating shapes\main.cpp(259): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
   Rotating Shapes.vcxproj -> D:\Programming\GitHub\Graphics-Assignments\Rotating Shapes\Debug\Rotating Shapes.exe

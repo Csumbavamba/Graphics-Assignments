@@ -11,16 +11,16 @@ class ShaderLoader
 	// Functions
 	private:
 
-		std::string ReadShader(char *filename);
+		std::string ReadShader(const char *filename);
 		GLuint CreateShader(GLenum shaderType,
 							std::string source,
-							char* shaderName);
+							const char* shaderName);
 
 	public:
 		ShaderLoader(void);
 		~ShaderLoader(void);
-		GLuint CreateProgram(char* VertexShaderFilename,
-							char* FragmentShaderFilename);
+		GLuint CreateProgram(const char* VertexShaderFilename,
+							const char* FragmentShaderFilename);
 
 	// Variables
 	private:

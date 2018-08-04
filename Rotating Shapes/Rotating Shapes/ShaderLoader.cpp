@@ -9,7 +9,7 @@ ShaderLoader::ShaderLoader(void){}
 ShaderLoader::~ShaderLoader(void){}
 
 
-std::string ShaderLoader::ReadShader(char *filename)
+std::string ShaderLoader::ReadShader(const char *filename)
 {
 	std::string shaderCode;
 	std::ifstream file(filename, std::ios::in);
@@ -28,7 +28,7 @@ std::string ShaderLoader::ReadShader(char *filename)
 }
 
 GLuint ShaderLoader::CreateShader(GLenum shaderType, std::string
-	source, char* shaderName)
+	source, const char* shaderName)
 {
 
 	int compile_result = 0;
@@ -90,8 +90,8 @@ GLuint ShaderLoader::CreateShader(GLenum shaderType, std::string
 //}
 
 
-GLuint ShaderLoader::CreateProgram(char* vertexShaderFilename,
-	char* fragmentShaderFilename)
+GLuint ShaderLoader::CreateProgram(const char* vertexShaderFilename,
+	const char* fragmentShaderFilename)
 {
 	// Check if the shaders exist
 	GLuint program;
@@ -121,7 +121,7 @@ GLuint ShaderLoader::CreateProgram(char* vertexShaderFilename,
 		{
 			// Create vertex shader
 			vertexShaderCode = ReadShader(vertexShaderFilename); //read the shader files and save the code
-			vertexShader = CreateShader(GL_VERTEX_SHADER, vertexShaderCode, (char*)"vertex shader");
+			vertexShader = CreateShader(GL_VERTEX_SHADER, vertexShaderCode, "vertex shader");
 			savedVertexShaders[vertexShaderFilename] = vertexShader;
 		}
 		else
@@ -137,7 +137,7 @@ GLuint ShaderLoader::CreateProgram(char* vertexShaderFilename,
 		{
 			// Create fragment shader
 			fragmentShaderCode = ReadShader(fragmentShaderFilename); //read the shader files and save the code
-			fragmentShader = CreateShader(GL_FRAGMENT_SHADER, fragmentShaderCode, (char*)"fragment shader");
+			fragmentShader = CreateShader(GL_FRAGMENT_SHADER, fragmentShaderCode, "fragment shader");
 			savedFragmentShaders[fragmentShaderFilename] = fragmentShader;
 		}
 		else
