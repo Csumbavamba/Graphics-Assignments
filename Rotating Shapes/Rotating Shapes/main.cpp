@@ -2,7 +2,6 @@
 #include "Dependencies\glew\glew.h"
 #include "Dependencies\freeglut\freeglut.h"
 #include "ShaderLoader.h"
-#include <math.h>
 
 GLuint program;
 GLuint hexagonVBO, quadVBO; // Vertex buffer Object
@@ -122,7 +121,6 @@ void Initialise()
 	program = shaderLoader.CreateProgram("VertexShader.vs", "FragmentShader.fs");
 
 	//@@@ HEXAGON
-
 	// Create hexagon VBO - VAO
 	glGenVertexArrays(1, &hexagonVAO);
 	glBindVertexArray(hexagonVAO);	
@@ -212,6 +210,8 @@ void Initialise()
 		8 * sizeof(GLfloat),
 		(GLvoid*)(6 * sizeof(GLfloat))
 	);
+
+	// if (color.g == 1.0f && color.b == 1.0f && color.r == 0)
 
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
